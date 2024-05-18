@@ -1,5 +1,16 @@
 {
-  "devDependencies": {
+  "name": "my-phaser-game",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "live-server",
+    "build": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
     "phaser": "^3.80.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2"
   }
 }
