@@ -1,0 +1,15 @@
+¡Bienvenido al mundo de LogicGate, joven aprendiz de lógica digital! En esta primera introducción, te familiarizarás con las compuertas lógicas básicas.
+Empecemos con la compuerta AND. Esta compuerta tiene dos entradas y una salida. La salida será verdadera (1) solo si ambas entradas son verdaderas (1).
+Ahora, veamos la compuerta OR. Esta también tiene dos entradas y una salida, pero la salida será verdadera (1) si al menos una de las entradas es verdadera (1).
+Ahora, pasemos a la compuerta NOT. Esta compuerta es un poco diferente: solo tiene una entrada y una salida. Su función es invertir el valor de entrada. Si la entrada es 1, la salida será 0, y viceversa.
+Ahora que dominas las compuertas lógicas básicas, es hora de adentrarse en las compuertas lógicas avanzadas: NAND, NOR, XOR y XNOR. Estas compuertas te permitirán resolver problemas más complejos. ¡Vamos a explorar cada una de ellas!
+Comencemos con la compuerta NAND. Es similar a la compuerta AND, pero con una diferencia crucial: la salida de la compuerta NAND es la inversa de la salida de la compuerta AND. En otras palabras, la salida será 0 solo si ambas entradas son 1; en cualquier otro caso, la salida será 1.
+Ahora veamos la compuerta NOR. Funciona como una compuerta OR, pero su salida es inversa. La salida será 1 solo si ambas entradas son 0; en cualquier otro caso, la salida será 0.
+Sigamos con la compuerta XOR, o "OR exclusivo". Esta compuerta tiene una salida 1 si exactamente una de sus entradas es 1; si ambas entradas son iguales, la salida es 0.
+Finalmente, veamos la compuerta XNOR, o "OR exclusivo inverso". Esta compuerta es la inversa de la XOR: su salida es 1 si las entradas son iguales, y 0 si son diferentes.
+Ahora que conoces las compuertas permíteme explicarte cómo interactuar con el entorno.
+Puedes usar tu mouse para hacer clic en los elementos interactivos de la pantalla, ¡cada uno te dejará saber cómo puedes interactuar con ellos también!
+Los desafíos que necesitas completar para pasar al siguiente nivel son un poco diferente: necesitarás usar los botones direccionales del teclado (←↑→↓) para interactuar con las opciones.
+Si quieres elegir una opción bastará con oprimir ENTER o ESPACIO.
+Si no estás seguro y quieres interactuar con algo más, puedes presionar SHIFT para salir del desafío.
+Eso es todo, ¡que disfrutes tu experiencia!
