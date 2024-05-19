@@ -44,7 +44,7 @@ export class PreloadScene extends Phaser.Scene {
     this.load.image(UI_ASSET_KEYS.ENTER_KEY, 'ui/EnterKey1.png');
 
     //sound
-    this.load.audio('menuMusic', ['sound/menu_bg.wav'], {stream: true});  
+    this.load.audio('menuMusic', ['sound/menu_bg.mp3'], {stream: true});  
     this.load.audio('wrongAns', ['sound/587253__beetlemuse__dats-wrong.wav']);  
     this.load.audio('rightAns', ['sound/587252__beetlemuse__dats-right.wav']);  
 
