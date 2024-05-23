@@ -37,7 +37,7 @@ export class LevelScene2 extends Phaser.Scene {
     console.log(`[${LevelScene2.name}: create] invoked`);
 
     //env render
-    this.add.image(0, 0, BACKGROUND_ASSET_KEYS.WHITE_ROOM).setOrigin(0).setScale(.52,.39);
+    this.add.image(0, 0, BACKGROUND_ASSET_KEYS.LVL2_WALL).setOrigin(0);
     this.add.text(0, 0, "Level: "+this.data.values.level,{
       color: 'black',
       fontSize: '30px',
@@ -213,7 +213,7 @@ export class LevelScene2 extends Phaser.Scene {
       this.#challenge.setVisible(false);
 
       this.#door = this.add
-        .image(this.scale.width / 2, 360, DOOR_ASSET_KEYS.DOOR_OPEN)
+        .image(this.scale.width / 2, 360, DOOR_ASSET_KEYS.GATE_OPEN)
         .setScale(.3);
 
       this.#door.on("pointerup", () => {
@@ -224,7 +224,7 @@ export class LevelScene2 extends Phaser.Scene {
       });
     } else {
       this.#door = this.add
-        .image(this.scale.width / 2, 360, DOOR_ASSET_KEYS.DOOR_CLOSED)
+        .image(this.scale.width / 2, 360, DOOR_ASSET_KEYS.GATE_CLOSED)
         .setScale(.3);
     }
     this.#door.setInteractive({ useHandCursor: true });

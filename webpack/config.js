@@ -20,14 +20,13 @@ module.exports = {
         exclude: /node_modules/,
         use: "babel-loader",
       },
-      ,
       {
         test: [/\.vert$/, /\.frag$/],
         use: "raw-loader",
       },
       {
         test: /\.(gif|png|jpe?g|svg|xml|glsl)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
       {
         test: /\.(wav|mp3)$/,

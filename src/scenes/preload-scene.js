@@ -15,6 +15,7 @@ export class PreloadScene extends Phaser.Scene {
 
     //background
     this.load.image(BACKGROUND_ASSET_KEYS.WHITE_ROOM, 'room-wall2.png');
+    this.load.image(BACKGROUND_ASSET_KEYS.LVL2_WALL, 'bg_2.png');
 
     //posters
     this.load.image(POSTER_ASSET_KEYS.POSTER_OR, 'posterOR.png');
@@ -29,6 +30,8 @@ export class PreloadScene extends Phaser.Scene {
     //doors
     this.load.image(DOOR_ASSET_KEYS.DOOR_CLOSED, '/Realistic/stuff/Door2.png');
     this.load.image(DOOR_ASSET_KEYS.DOOR_OPEN, 'Door2_open.png');
+    this.load.image(DOOR_ASSET_KEYS.GATE_OPEN, '/Realistic/stuff/Gate1_open.png');
+    this.load.image(DOOR_ASSET_KEYS.GATE_CLOSED, '/Realistic/stuff/Gate1.png');
 
     //gates
     this.load.image(CHALLENGE_ASSET_KEYS.LVL1, 'chll/lvl1.png');

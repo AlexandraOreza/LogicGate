@@ -1,7 +1,6 @@
 export const BACKGROUND_ASSET_KEYS = Object.freeze({
     'WHITE_ROOM': 'WHITE_ROOM',
     'MENU': 'MENU',
-    'LVL1_WALL' : 'LVL1_WALL',
     'LVL2_WALL' : 'LVL2_WALL',
     'LVL3_WALL' : 'LVL3_WALL',
     'LVL4_WALL' : 'LVL4_WALL',
@@ -22,6 +21,8 @@ export const POSTER_ASSET_KEYS = Object.freeze({
 export const DOOR_ASSET_KEYS = Object.freeze({
     'DOOR_OPEN': 'DOOR_OPEN',
     'DOOR_CLOSED': 'DOOR_CLOSED',
+    'GATE_OPEN': 'GATE_OPEN',
+    'GATE_CLOSED': 'GATE_CLOSED',
 });
 
 export const CHALLENGE_ASSET_KEYS = Object.freeze({
