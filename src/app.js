@@ -10,6 +10,7 @@ import { LevelScene5 } from "./scenes/level-scene5.js";
 import { EndScene } from "./scenes/end-scene.js";
 import { GameOverScene } from "./scenes/gameover-scene.js";
 import { IntroScene } from "./scenes/intro-scene.js";
+import { SideRoomScene } from "./scenes/side-room-scene.js";
 
 new Phaser.Game({
     type: Phaser.CANVAS,
@@ -25,7 +26,7 @@ new Phaser.Game({
         disableWebAudio: true
     },
     scene: [PreloadScene, MenuScene, IntroScene, LevelScene, LevelScene2, LevelScene3, LevelScene4, 
-        LevelScene5, ProgressScene, EndScene, GameOverScene],
+        LevelScene5, SideRoomScene, ProgressScene, EndScene, GameOverScene],
 
 });
 
