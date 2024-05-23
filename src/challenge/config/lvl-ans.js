@@ -2,26 +2,90 @@ export const LEVEL_ANSWERS = {
   1: {
     correct: "00",
     answers: {
-      OP1: "00",
-      OP2: "10",
-      OP3: "01",
-      OP4: "11",
+      1: "00",
+      2: "10",
+      3: "01",
+      0: "11",
     },
     wrongMappings: {
-      OP1: 1,
-      OP2: 2,
-      OP3: 3,
-      OP0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
     },
-    rightMapping: 0,
+    rightMapping: 1,
   },
   2: {
     correct: "110",
     answers: {
-      OP1: "010",
-      OP2: "110",
-      OP3: "001",
-      OP4: "111",
+      1: "010",
+      2: "110",
+      3: "001",
+      0: "111",
+    },
+    wrongMappings: {
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
+    },
+    rightMapping: 1,
+  },
+  3: {
+    correct: "01",
+    answers: {
+      1: "00",
+      2: "10",
+      3: "11",
+      0: "01",
+    },
+    wrongMappings: {
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
+    },
+    rightMapping: 3,
+  },
+  4: {
+    correct: "01",
+    answers: {      
+      1: "10",
+      2: "11",
+      3: "01",
+      0: "00",
+    },
+    wrongMappings: {
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
+    },
+    rightMapping: 2,
+  },
+  5: {
+    correct: "011",
+    answers: {
+      1: "111",
+      2: "011",
+      3: "101",
+      0: "010",
+    },
+    wrongMappings: {
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
+    },
+    rightMapping: 1,
+  },
+  'SideR3':{
+    correct: "AND",
+    answers: {
+      OP1: "OR",
+      OP2: "AND",
+      OP3: "NOT",
+      OP4: "NINGUNA",
     },
     wrongMappings: {
       OP1: 1,
@@ -31,13 +95,13 @@ export const LEVEL_ANSWERS = {
     },
     rightMapping: 1,
   },
-  3: {
-    correct: "01",
+  'SideR4':{
+    correct: "AND",
     answers: {
-      OP1: "00",
-      OP2: "10",
-      OP3: "11",
-      OP4: "01",
+      OP1: "OR",
+      OP2: "AND",
+      OP3: "NOT",
+      OP4: "NINGUNA",
     },
     wrongMappings: {
       OP1: 1,
@@ -45,31 +109,15 @@ export const LEVEL_ANSWERS = {
       OP3: 3,
       OP0: 0,
     },
-    rightMapping: 3,
+    rightMapping: 1,
   },
-  4: {
-    correct: "01",
-    answers: {      
-      OP1: "10",
-      OP2: "11",
-      OP3: "01",
-      OP4: "00",
-    },
-    wrongMappings: {
-      OP1: 1,
-      OP2: 2,
-      OP3: 3,
-      OP0: 0,
-    },
-    rightMapping: 2,
-  },
-  5: {
-    correct: "011",
+  'SideR5':{
+    correct: "AND",
     answers: {
-      OP1: "111",
-      OP2: "011",
-      OP3: "101",
-      OP4: "010",
+      OP1: "OR",
+      OP2: "AND",
+      OP3: "NOT",
+      OP4: "NINGUNA",
     },
     wrongMappings: {
       OP1: 1,

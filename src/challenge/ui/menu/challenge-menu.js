@@ -3,6 +3,7 @@ import Phaser from "../../../lib/phaser.js";
 import { SCENE_KEYS } from "../../../scenes/scene-keys.js";
 import { DIRECTION } from "../../../util/direction.js";
 import { exhaustiveGuard } from "../../../util/guard.js";
+import { shuffle } from "../../../util/shuffle.js";
 import { LEVEL_ANSWERS } from "../../config/lvl-ans.js";
 
 const ans_opt_UI = {
@@ -33,11 +34,12 @@ export class ChallengeMenu {
   #currentLevel;
   #lvlData;
   #selectedWrongOpt;
-  #answerTxt;
   /**
    * @type {Phaser.GameObjects.Container}
    */
   #option;
+  #shuffledAnswers;
+  #reverseMappings;
 
   constructor(scene) {
     this.#scene = scene;
@@ -45,7 +47,6 @@ export class ChallengeMenu {
     this.#currentLevel = this.#scene.data.values.level;
 
     this.#lvlData = LEVEL_ANSWERS[this.#currentLevel];
-    this.#answerTxt = LEVEL_ANSWERS[this.#currentLevel].answers;
 
     this.#selectedOpt = 2;
     this.#selectedWrongOpt = new Set();
@@ -83,21 +84,21 @@ export class ChallengeMenu {
    * @param {number} answ
    */
   #checkAnswer(answ) {
-    if (answ === this.#lvlData.rightMapping) {
+    const selectedAnswer = this.#shuffledAnswers[answ];
+    if (selectedAnswer === this.#lvlData.correct) {
       this.#scene.sound.play("rightAns", {
         volume: 0.5,
       });
       return "1";
     } else if (!this.#selectedWrongOpt.has(answ)) {
-
-      const wrongIndex = this.#lvlData.wrongMappings["OP"+answ];
+      const wrongIndex = this.#lvlData.wrongMappings[answ];
       /**
        * @type {Phaser.GameObjects.Container}
        */
       this.#option = this.#MenuPanel.getAt(wrongIndex);
-      
+
       if (!this.#option) {
-        console.error('Invalid option:', wrongIndex);
+        console.error("Invalid option:", wrongIndex);
         return;
       }
 
@@ -118,7 +119,7 @@ export class ChallengeMenu {
    *
    * @param {import ('../../../util/direction.js').Direction} direction
    */
- 
+
   #updateSelection(direction) {
     if (this.#selectedOpt === 2) {
       switch (direction) {
@@ -157,7 +158,7 @@ export class ChallengeMenu {
       }
       return;
     }
- 
+
     if (this.#selectedOpt === 0) {
       switch (direction) {
         case DIRECTION.RIGHT:
@@ -197,7 +198,7 @@ export class ChallengeMenu {
     }
     exhaustiveGuard(this.#selectedOpt);
   }
-/**
+  /**
    * op1 = 2
    * op2 = 3
    * op3 = 0
@@ -225,18 +226,31 @@ export class ChallengeMenu {
 
   //Menu creation
   #createChallengeMenu() {
+    const rightAns = Object.keys(this.#lvlData.answers);
+    shuffle(rightAns);
+
     //538 bttm, 445 up
     this.#challengeCursorObj = this.#scene.add
       .image(CURSOR_POS.x, CURSOR_POS.y, UI_ASSET_KEYS.CURSOR, 0)
       .setScale(1.5);
 
-    this.#MenuPanel = this.#scene.add.container(0, 0, [
-      this.#createAnwsPane(0, 0, this.#answerTxt.OP1),
-      this.#createAnwsPane(508, 0, this.#answerTxt.OP2),
-      this.#createAnwsPane(0, 87, this.#answerTxt.OP3),
-      this.#createAnwsPane(508, 87, this.#answerTxt.OP4),
-      this.#challengeCursorObj,
-    ]);
+    this.#MenuPanel = this.#scene.add.container(0, 0);
+
+    this.#shuffledAnswers = {};
+    this.#reverseMappings = {};
+
+    rightAns.forEach((key, index) => {
+      this.#shuffledAnswers[index] = this.#lvlData.answers[key];
+      this.#reverseMappings[this.#lvlData.answers[key]] = index;
+
+      const x = index % 2 === 0 ? 0 : 508;
+      const y = index < 2 ? 0 : 87;
+      this.#MenuPanel.add(
+        this.#createAnwsPane(x, y, this.#lvlData.answers[key])
+      );
+    });
+    this.#lvlData.rightMapping = this.#reverseMappings[this.#lvlData.correct];
+    this.#MenuPanel.add(this.#challengeCursorObj);
   }
 
   #createAnwsPane(x, y, name) {
@@ -256,8 +270,13 @@ export class ChallengeMenu {
         .setOrigin(0)
         .setStrokeStyle(8, 0x905ac2, 1),
       this.#scene.add
-        .text(x + 100, this.#scene.scale.height - rectH - y + 25, name, ans_opt_UI)
-        .setOrigin(0)
+        .text(
+          x + 100,
+          this.#scene.scale.height - rectH - y + 25,
+          name,
+          ans_opt_UI
+        )
+        .setOrigin(0),
     ]);
     return this.#optionContainer;
   }
