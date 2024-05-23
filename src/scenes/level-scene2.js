@@ -213,7 +213,7 @@ export class LevelScene2 extends Phaser.Scene {
       this.#challenge.setVisible(false);
 
       this.#door = this.add
-        .image(580, 270, DOOR_ASSET_KEYS.GATE_OPEN)
+        .image(600, 270, DOOR_ASSET_KEYS.GATE_OPEN)
         .setScale(.3);
 
       this.#door.on("pointerup", () => {
@@ -224,7 +224,7 @@ export class LevelScene2 extends Phaser.Scene {
       });
     } else {
       this.#door = this.add
-        .image(580, 270, DOOR_ASSET_KEYS.GATE_CLOSED)
+        .image(600, 270, DOOR_ASSET_KEYS.GATE_CLOSED)
         .setScale(.3);
     }
     this.#door.setInteractive({ useHandCursor: true });
