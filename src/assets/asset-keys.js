@@ -21,8 +21,11 @@ export const POSTER_ASSET_KEYS = Object.freeze({
 export const DOOR_ASSET_KEYS = Object.freeze({
     'DOOR_OPEN': 'DOOR_OPEN',
     'DOOR_CLOSED': 'DOOR_CLOSED',
+    'FDOOR_OPEN': 'FDOOR_OPEN',
+    'FDOOR_CLOSED': 'FDOOR_CLOSED',
     'GATE_OPEN': 'GATE_OPEN',
     'GATE_CLOSED': 'GATE_CLOSED',
+    'GATED_CLOSED': 'GATED_CLOSED',
 });
 
 export const CHALLENGE_ASSET_KEYS = Object.freeze({
