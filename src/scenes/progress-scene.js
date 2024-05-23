@@ -116,4 +116,9 @@ export class ProgressScene extends Phaser.Scene {
       }
     });
   }
+
+  resetProgress(){
+    this.#progress = [];
+    this.#currentLevel = 0;
+  }
 }

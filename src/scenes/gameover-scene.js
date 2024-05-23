@@ -1,5 +1,5 @@
-import { UI_ASSET_KEYS } from "../assets/asset-keys.js";
 import Phaser from "../lib/phaser.js";
+import { ProgressScene } from "./progress-scene.js";
 import { SCENE_KEYS } from "./scene-keys.js";
 
 export class GameOverScene extends Phaser.Scene{
@@ -34,6 +34,8 @@ export class GameOverScene extends Phaser.Scene{
           button.on('pointerup', () => {
               this.sound.stopAll();
               this.scene.start(SCENE_KEYS.MENU_SCENE);
+              let progress = new ProgressScene();
+              progress.resetProgress();
               button.disableInteractive();
           }, this);
     }

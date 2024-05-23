@@ -44,7 +44,7 @@ export class LevelScene2 extends Phaser.Scene {
     });
 
     this.#poster = this.add
-      .image(300, 250, POSTER_ASSET_KEYS.POSTER_ICON)
+      .image(350, 250, POSTER_ASSET_KEYS.POSTER_ICON)
       .setScale(0.1);
 
     this.#handleDoor(this.#cleared);
@@ -213,7 +213,7 @@ export class LevelScene2 extends Phaser.Scene {
       this.#challenge.setVisible(false);
 
       this.#door = this.add
-        .image(this.scale.width / 2, 360, DOOR_ASSET_KEYS.GATE_OPEN)
+        .image(this.scale.width / 3, 340, DOOR_ASSET_KEYS.GATE_OPEN)
         .setScale(.3);
 
       this.#door.on("pointerup", () => {
@@ -224,7 +224,7 @@ export class LevelScene2 extends Phaser.Scene {
       });
     } else {
       this.#door = this.add
-        .image(this.scale.width / 2, 360, DOOR_ASSET_KEYS.GATE_CLOSED)
+        .image(this.scale.width / 3, 340, DOOR_ASSET_KEYS.GATE_CLOSED)
         .setScale(.3);
     }
     this.#door.setInteractive({ useHandCursor: true });
