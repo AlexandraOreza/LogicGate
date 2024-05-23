@@ -26,10 +26,17 @@ export class LevelScene5 extends Phaser.Scene {
     super({
       key: SCENE_KEYS.LEVEL_SCENE5,
     });
+    
+  }
+  preload(){
+    this.data.set({
+      'level': 5,
+      progress: false,
+    });
     this.#cleared = false;
   }
 
-  create() {
+  create() {    
     this.data.set({
       'level': 5,
       progress: false,

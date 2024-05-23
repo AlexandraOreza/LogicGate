@@ -26,21 +26,23 @@ export class LevelScene2 extends Phaser.Scene {
     super({
       key: SCENE_KEYS.LEVEL_SCENE2,
     });
+  }
+  preload() {
+    this.data.set({
+      level: 2,
+      progress: false,
+    });
     this.#cleared = false;
   }
 
   create() {
-    this.data.set({
-      'level': 2,
-      progress: false,
-    });
     console.log(`[${LevelScene2.name}: create] invoked`);
 
     //env render
     this.add.image(0, 0, BACKGROUND_ASSET_KEYS.LVL2_WALL).setOrigin(0);
-    this.add.text(0, 0, "Level: "+this.data.values.level,{
-      color: 'black',
-      fontSize: '30px',
+    this.add.text(0, 0, "Level: " + this.data.values.level, {
+      color: "black",
+      fontSize: "30px",
     });
 
     this.#poster = this.add
@@ -176,7 +178,10 @@ export class LevelScene2 extends Phaser.Scene {
       return;
     }
 
-    if (this.#challengeMenu && Phaser.Input.Keyboard.JustDown(this.#cursorKey.shift)) {
+    if (
+      this.#challengeMenu &&
+      Phaser.Input.Keyboard.JustDown(this.#cursorKey.shift)
+    ) {
       this.#challengeMenu.handleInput("CANCEL");
       this.#door.setInteractive(true);
       this.#challenge.setVisible(false);
@@ -214,7 +219,7 @@ export class LevelScene2 extends Phaser.Scene {
 
       this.#door = this.add
         .image(600, 270, DOOR_ASSET_KEYS.GATE_OPEN)
-        .setScale(.3);
+        .setScale(0.3);
 
       this.#door.on("pointerup", () => {
         this.data.values.progress = true;
@@ -225,7 +230,7 @@ export class LevelScene2 extends Phaser.Scene {
     } else {
       this.#door = this.add
         .image(600, 270, DOOR_ASSET_KEYS.GATE_CLOSED)
-        .setScale(.3);
+        .setScale(0.3);
     }
     this.#door.setInteractive({ useHandCursor: true });
   }

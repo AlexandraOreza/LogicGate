@@ -28,14 +28,16 @@ export class LevelScene3 extends Phaser.Scene {
     super({
       key: SCENE_KEYS.LEVEL_SCENE3,
     });
-    this.#cleared = false;
   }
-
-  create() {
+  preload() {
     this.data.set({
       level: 3,
       progress: false,
     });
+    this.#cleared = false;
+  }
+
+  create() {
     console.log(`[${LevelScene3.name}: create] invoked`);
 
     //env render
