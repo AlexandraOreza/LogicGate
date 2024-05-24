@@ -34,7 +34,6 @@ export class SideChallengeMenu {
   #currentLevel;
   #lvlData;
   #selectedWrongOpt;
-  #answerTxt;
   /**
    * @type {Phaser.GameObjects.Container}
    */
@@ -48,7 +47,6 @@ export class SideChallengeMenu {
     this.#currentLevel = this.#scene.data.values.level;
 
     this.#lvlData = LEVEL_ANSWERS["SideR" + this.#currentLevel];
-    this.#answerTxt = LEVEL_ANSWERS["SideR" + this.#currentLevel].answers;
 
     this.#selectedOpt = 2;
     this.#selectedWrongOpt = new Set();
