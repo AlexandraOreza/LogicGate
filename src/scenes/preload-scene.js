@@ -10,6 +10,7 @@ export class PreloadScene extends Phaser.Scene {
   }
 
   preload() {
+    console.log(`[${PreloadScene.name}: preload] invoked`);
     this.load.setPath('assets/');
 
     //background
@@ -34,9 +35,12 @@ export class PreloadScene extends Phaser.Scene {
     this.load.image(DOOR_ASSET_KEYS.DOOR_OPEN, 'Door2_open.png');
     this.load.image(DOOR_ASSET_KEYS.FDOOR_CLOSED, '/Realistic/stuff/FuturisticDoor1.png');
     this.load.image(DOOR_ASSET_KEYS.FDOOR_OPEN, '/Realistic/stuff/FuturisticDoor1_open.png');
+    this.load.image(DOOR_ASSET_KEYS.CDOOR_CLOSED, '/Realistic/stuff/FuturisticDoor2.png');
+    this.load.image(DOOR_ASSET_KEYS.CDOOR_OPEN, '/Realistic/stuff/FuturisticDoor2_open.png');
     this.load.image(DOOR_ASSET_KEYS.GATE_OPEN, '/Realistic/stuff/Gate1_open.png');
     this.load.image(DOOR_ASSET_KEYS.GATE_CLOSED, '/Realistic/stuff/Gate1.png');
     this.load.image(DOOR_ASSET_KEYS.GATED_CLOSED, '/Realistic/stuff/Gate1D.png');
+    this.load.image(DOOR_ASSET_KEYS.GATEI_CLOSED, '/Realistic/stuff/Gate1I.png');
     this.load.image(DOOR_ASSET_KEYS.MDOOR_CLOSED, '/Realistic/stuff/MetalDoor1.png');
 
     //gates
@@ -63,6 +67,7 @@ export class PreloadScene extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start(SCENE_KEYS.MENU_SCENE);
+    console.log(`[${PreloadScene.name}: create] invoked`);
+    this.scene.start(SCENE_KEYS.LEVEL_SCENE5);
   }
 }
