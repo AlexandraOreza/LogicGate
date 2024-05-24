@@ -3,6 +3,7 @@ import Phaser from "../../../lib/phaser.js";
 import { SCENE_KEYS } from "../../../scenes/scene-keys.js";
 import { DIRECTION } from "../../../util/direction.js";
 import { exhaustiveGuard } from "../../../util/guard.js";
+import { shuffle } from "../../../util/shuffle.js";
 import { LEVEL_ANSWERS } from "../../config/lvl-ans.js";
 
 const ans_opt_UI = {
@@ -38,6 +39,8 @@ export class SideChallengeMenu {
    * @type {Phaser.GameObjects.Container}
    */
   #option;
+  #shuffledAnswers;
+  #reverseMappings;
 
   constructor(scene) {
     this.#scene = scene;
@@ -81,15 +84,16 @@ export class SideChallengeMenu {
    * @param {number} answ
    */
   #checkAnswer(answ) {
-    if (answ === this.#lvlData.rightMapping) {
+    const selectedAnswer = this.#shuffledAnswers[answ];
+    if (selectedAnswer === this.#lvlData.correct) {
       this.#scene.sound.play("rightAns", {
         volume: 0.5,
       });
-      this.#scene.scene.launch(SCENE_KEYS.SIDE_ROOM);
+      this.#scene.scene.launch(SCENE_KEYS.SIDE_ROOM, this.#currentLevel);
       this.hideMenu();
       return "2";
     } else if (!this.#selectedWrongOpt.has(answ)) {
-      const wrongIndex = this.#lvlData.wrongMappings["OP" + answ];
+      const wrongIndex = this.#lvlData.wrongMappings[answ];
       /**
        * @type {Phaser.GameObjects.Container}
        */
@@ -225,10 +229,30 @@ export class SideChallengeMenu {
   //Menu creation
   #createChallengeMenu() {
     //538 bttm, 445 up
+    const rightAns = Object.keys(this.#lvlData.answers);
+    shuffle(rightAns);
+
     this.#challengeCursorObj = this.#scene.add
       .image(CURSOR_POS.x, CURSOR_POS.y, UI_ASSET_KEYS.CURSOR, 0)
       .setScale(1.5);
+    this.#MenuPanel = this.#scene.add.container(0, 0);
 
+    this.#shuffledAnswers = {};
+    this.#reverseMappings = {};
+
+    rightAns.forEach((key, index) => {
+      this.#shuffledAnswers[index] = this.#lvlData.answers[key];
+      this.#reverseMappings[this.#lvlData.answers[key]] = index;
+
+      const x = index % 2 === 0 ? 0 : 508;
+      const y = index < 2 ? 0 : 87;
+      this.#MenuPanel.add(
+        this.#createAnwsPane(x, y, this.#lvlData.answers[key])
+      );
+    });
+    this.#lvlData.rightMapping = this.#reverseMappings[this.#lvlData.correct];
+    this.#MenuPanel.add(this.#challengeCursorObj);
+    /**
     this.#MenuPanel = this.#scene.add.container(0, 0, [
       this.#createAnwsPane(0, 0, this.#answerTxt.OP1),
       this.#createAnwsPane(508, 0, this.#answerTxt.OP2),
@@ -236,6 +260,7 @@ export class SideChallengeMenu {
       this.#createAnwsPane(508, 87, this.#answerTxt.OP4),
       this.#challengeCursorObj,
     ]);
+    */
   }
 
   #createAnwsPane(x, y, name) {
