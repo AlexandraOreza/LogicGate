@@ -26,32 +26,27 @@ export class LevelScene5 extends Phaser.Scene {
     super({
       key: SCENE_KEYS.LEVEL_SCENE5,
     });
-    
   }
-  preload(){
+  preload() {
     this.data.set({
-      'level': 5,
+      level: 5,
       progress: false,
     });
     this.#cleared = false;
   }
 
-  create() {    
-    this.data.set({
-      'level': 5,
-      progress: false,
-    });
+  create() {
     console.log(`[${LevelScene5.name}: create] invoked`);
 
     //env render
-    this.add.image(0, 0, BACKGROUND_ASSET_KEYS.WHITE_ROOM).setOrigin(0).setScale(.52,.39);
-    this.add.text(0, 0, "Level: "+this.data.values.level,{
-      color: 'black',
-      fontSize: '30px',
+    this.add.image(0, 0, BACKGROUND_ASSET_KEYS.LVL5_WALL).setOrigin(0);
+    this.add.text(0, 0, "Level: " + this.data.values.level, {
+      color: "black",
+      fontSize: "30px",
     });
 
     this.#poster = this.add
-      .image(300, 250, POSTER_ASSET_KEYS.POSTER_ICON)
+      .image(720, 300, POSTER_ASSET_KEYS.POSTER_ICON)
       .setScale(0.1);
 
     this.#handleDoor(this.#cleared);
@@ -127,7 +122,7 @@ export class LevelScene5 extends Phaser.Scene {
             .image(this.scale.width / 2, 350, POSTER_ASSET_KEYS.POSTER_NOT)
             .setScale(0.5)
         );
-        
+
         posterXNOR = posterLayer.add(
           this.add.image(300, 200, POSTER_ASSET_KEYS.POSTER_XNOR).setScale(0.6)
         );
@@ -190,7 +185,10 @@ export class LevelScene5 extends Phaser.Scene {
       return;
     }
 
-    if (this.#challengeMenu && Phaser.Input.Keyboard.JustDown(this.#cursorKey.shift)) {
+    if (
+      this.#challengeMenu &&
+      Phaser.Input.Keyboard.JustDown(this.#cursorKey.shift)
+    ) {
       this.#challengeMenu.handleInput("CANCEL");
       this.#door.setInteractive(true);
       this.#challenge.setVisible(false);
@@ -228,7 +226,7 @@ export class LevelScene5 extends Phaser.Scene {
 
       this.#door = this.add
         .image(this.scale.width / 2, 360, DOOR_ASSET_KEYS.DOOR_OPEN)
-        .setScale(.3);
+        .setScale(0.3);
 
       this.#door.on("pointerup", () => {
         this.data.values.progress = true;
@@ -237,8 +235,11 @@ export class LevelScene5 extends Phaser.Scene {
         });
       });
     } else {
+      /**TODO:
+       * - change the door asset (needs edit)
+       */
       this.#door = this.add
-        .image(this.scale.width / 2, 360, DOOR_ASSET_KEYS.DOOR_CLOSED)
+        .image(this.scale.width / 2, 330, DOOR_ASSET_KEYS.FDOOR_CLOSED)
         .setScale(0.3);
     }
     this.#door.setInteractive({ useHandCursor: true });
