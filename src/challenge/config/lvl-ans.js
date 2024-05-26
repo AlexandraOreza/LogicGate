@@ -1,20 +1,57 @@
 export const LEVEL_ANSWERS = {
-  1: {
-    correct: "00",
-    answers: {
-      1: "00",
-      2: "10",
-      3: "01",
-      0: "11",
+  1: [
+    {//""
+      correct: "00",
+      answers: {
+        1: "00",
+        2: "10",
+        3: "01",
+        0: "11",
+      },
+      wrongMappings: {
+        1: 1,
+        2: 2,
+        3: 3,
+        0: 0,
+      },
+      rightMapping: 1,
+      variant: "",
     },
-    wrongMappings: {
-      1: 1,
-      2: 2,
-      3: 3,
-      0: 0,
+    {//"B"
+      correct: "0",
+      answers: {
+        1: "00",
+        2: "0",
+        3: "1",
+        0: "11",
+      },
+      wrongMappings: {
+        1: 1,
+        2: 2,
+        3: 3,
+        0: 0,
+      },
+      rightMapping: 2,
+      variant: "B",
     },
-    rightMapping: 1,
-  },
+    {//"C"
+      correct: "100",
+      answers: {
+        1: "001",
+        2: "101",
+        3: "010",
+        0: "100",
+      },
+      wrongMappings: {
+        1: 1,
+        2: 2,
+        3: 3,
+        0: 0,
+      },
+      rightMapping: 0,
+      variant: "C"
+    },
+  ],
   2: {
     correct: "110",
     answers: {
