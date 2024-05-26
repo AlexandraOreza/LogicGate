@@ -40,13 +40,21 @@ export class ChallengeMenu {
   #option;
   #shuffledAnswers;
   #reverseMappings;
+  #currentChallenge;
 
   constructor(scene) {
+    const CHALLENGES = Object.freeze({
+      "": 0,
+      "B": 1,
+      "C": 2,
+    });
+
     this.#scene = scene;
     this.#cont = 0;
     this.#currentLevel = this.#scene.data.values.level;
+    this.#currentChallenge = this.#scene.data.values.challenge;
 
-    this.#lvlData = LEVEL_ANSWERS[this.#currentLevel];
+    this.#lvlData = LEVEL_ANSWERS[this.#currentLevel][CHALLENGES[this.#currentChallenge]];
 
     this.#selectedOpt = 2;
     this.#selectedWrongOpt = new Set();

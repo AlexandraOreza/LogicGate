@@ -6,3 +6,9 @@ export function shuffle(array) {
     return array;
 }
 
+
+export function getRandomLetter() {
+  const letters = ['', 'B', 'C'];
+  const randomIndex = Math.floor(Math.random() * letters.length);
+  return letters[randomIndex];
+}

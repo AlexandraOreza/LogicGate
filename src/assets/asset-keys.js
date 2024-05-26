@@ -34,7 +34,10 @@ export const DOOR_ASSET_KEYS = Object.freeze({
 
 export const CHALLENGE_ASSET_KEYS = Object.freeze({
     'LVL1': 'LVL1',
+    'LVL1B': 'LVL1B',
+    'LVL1C': 'LVL1C',
     'LVL2': 'LVL2',
+    'LVL2B': 'LVL2B',
     'LVL3': 'LVL3',
     'LVL4': 'LVL4',
     'LVL5': 'LVL5',

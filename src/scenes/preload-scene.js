@@ -45,7 +45,10 @@ export class PreloadScene extends Phaser.Scene {
 
     //gates
     this.load.image(CHALLENGE_ASSET_KEYS.LVL1, 'chll/lvl1.png');
+    this.load.image(CHALLENGE_ASSET_KEYS.LVL1B, 'chll/lvl1B.png');
+    this.load.image(CHALLENGE_ASSET_KEYS.LVL1C, 'chll/lvl1C.png');
     this.load.image(CHALLENGE_ASSET_KEYS.LVL2, 'chll/lvl2.png');
+    this.load.image(CHALLENGE_ASSET_KEYS.LVL2B, 'chll/lvl2B.png');
     this.load.image(CHALLENGE_ASSET_KEYS.LVL3, 'chll/lvl3.png');
     this.load.image(CHALLENGE_ASSET_KEYS.LVL4, 'chll/lvl4.png');
     this.load.image(CHALLENGE_ASSET_KEYS.LVL5, 'chll/lvl5.png');
