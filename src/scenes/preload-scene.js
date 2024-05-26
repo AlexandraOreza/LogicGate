@@ -68,6 +68,6 @@ export class PreloadScene extends Phaser.Scene {
 
   create() {
     console.log(`[${PreloadScene.name}: create] invoked`);
-    this.scene.start(SCENE_KEYS.LEVEL_SCENE5);
+    this.scene.start(SCENE_KEYS.MENU_SCENE);
   }
 }
