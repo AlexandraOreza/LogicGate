@@ -38,9 +38,16 @@ export const CHALLENGE_ASSET_KEYS = Object.freeze({
     'LVL1C': 'LVL1C',
     'LVL2': 'LVL2',
     'LVL2B': 'LVL2B',
+    'LVL2C': 'LVL2C',
     'LVL3': 'LVL3',
+    'LVL3B': 'LVL3B',
+    'LVL3C': 'LVL3C',
     'LVL4': 'LVL4',
+    'LVL4B': 'LVL4B',
+    'LVL4C': 'LVL4C',
     'LVL5': 'LVL5',
+    'LVL5B': 'LVL5B',
+    'LVL5C': 'LVL5C',
 });
 
 export const UI_ASSET_KEYS = Object.freeze({

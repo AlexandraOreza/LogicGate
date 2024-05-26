@@ -10,6 +10,7 @@ import { SCENE_KEYS } from "./scene-keys.js";
 import { ChallengeMenu } from "../challenge/ui/menu/challenge-menu.js";
 import { DIRECTION } from "../util/direction.js";
 import { SideChallengeMenu } from "../challenge/ui/menu/side-challenge.js";
+import { getRandomLetter } from "../util/shuffle.js";
 
 export class LevelScene3 extends Phaser.Scene {
   #challengeMenu;
@@ -23,16 +24,21 @@ export class LevelScene3 extends Phaser.Scene {
   #poster;
   #keyEnter;
   #sideDoor;
+  #chll;
 
   constructor() {
     super({
       key: SCENE_KEYS.LEVEL_SCENE3,
     });
+    
   }
+
   preload() {
+    this.#chll = getRandomLetter();
     this.data.set({
       level: 3,
       progress: false,
+      challenge: this.#chll,
     });
     this.#cleared = false;
   }
@@ -53,7 +59,8 @@ export class LevelScene3 extends Phaser.Scene {
 
     this.#sideDoor = this.add
       .image(855, 410, DOOR_ASSET_KEYS.GATED_CLOSED)
-      .setScale(0.3).setAngle(3);
+      .setScale(0.3)
+      .setAngle(3);
 
     this.#handleDoor(this.#cleared);
 
@@ -73,6 +80,7 @@ export class LevelScene3 extends Phaser.Scene {
     });
 
     let challengeImg, inst, arrow, enterkey;
+    
     this.#sideDoor.on("pointerup", () => {
       arrow = this.add.image(100, 100, UI_ASSET_KEYS.ARROWKEYS).setScale(0.3);
       enterkey = this.add
@@ -97,10 +105,8 @@ export class LevelScene3 extends Phaser.Scene {
         enterkey,
       ]);
 
-
       this.#challengeMenu = new SideChallengeMenu(this);
 
-      
       this.#door.disableInteractive();
       this.#poster.disableInteractive();
     });
@@ -116,7 +122,7 @@ export class LevelScene3 extends Phaser.Scene {
     this.#door.on("pointerup", () => {
       if (this.#cleared == false) {
         challengeImg = this.add
-          .image(250, 80, CHALLENGE_ASSET_KEYS.LVL3)
+          .image(250, 80, CHALLENGE_ASSET_KEYS[`LVL3${this.#chll}`])
           .setOrigin(0);
 
         arrow = this.add.image(100, 100, UI_ASSET_KEYS.ARROWKEYS).setScale(0.3);

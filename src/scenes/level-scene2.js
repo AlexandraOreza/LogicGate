@@ -9,6 +9,7 @@ import Phaser from "../lib/phaser.js";
 import { SCENE_KEYS } from "./scene-keys.js";
 import { ChallengeMenu } from "../challenge/ui/menu/challenge-menu.js";
 import { DIRECTION } from "../util/direction.js";
+import { getRandomLetter } from "../util/shuffle.js";
 
 export class LevelScene2 extends Phaser.Scene {
   #challengeMenu;
@@ -21,16 +22,20 @@ export class LevelScene2 extends Phaser.Scene {
   #challenge;
   #poster;
   #keyEnter;
+  #chll;
 
   constructor() {
     super({
       key: SCENE_KEYS.LEVEL_SCENE2,
     });
   }
+
   preload() {
+    this.#chll = getRandomLetter();
     this.data.set({
       level: 2,
       progress: false,
+      challenge: this.#chll,
     });
     this.#cleared = false;
   }
@@ -70,7 +75,7 @@ export class LevelScene2 extends Phaser.Scene {
     this.#door.on("pointerup", () => {
       if (this.#cleared == false) {
         challengeImg = this.add
-          .image(this.scale.width / 8, 50, CHALLENGE_ASSET_KEYS.LVL2)
+          .image(this.scale.width / 8, 50, CHALLENGE_ASSET_KEYS[`LVL2${this.#chll}`])
           .setOrigin(0)
           .setScale(1.5);
 

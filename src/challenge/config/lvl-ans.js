@@ -52,7 +52,7 @@ export const LEVEL_ANSWERS = {
       variant: "C"
     },
   ],
-  2: {
+  2: [{//""
     correct: "110",
     answers: {
       1: "010",
@@ -67,8 +67,40 @@ export const LEVEL_ANSWERS = {
       0: 0,
     },
     rightMapping: 1,
+  },{//"B"
+    correct: "10",
+    answers: {
+      1: "00",
+      2: "11",
+      3: "10",
+      0: "11",
+    },
+    wrongMappings: {
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
+    },
+    rightMapping: 2,
   },
-  3: {
+  {//"C" TODO: hacer el asset
+    correct: "110",
+    answers: {
+      1: "010",
+      2: "110",
+      3: "001",
+      0: "111",
+    },
+    wrongMappings: {
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
+    },
+    rightMapping: 0,
+  },
+],
+  3: [{
     correct: "01",
     answers: {
       1: "00",
@@ -84,9 +116,10 @@ export const LEVEL_ANSWERS = {
     },
     rightMapping: 3,
   },
-  4: {
+],
+  4: [{
     correct: "01",
-    answers: {      
+    answers: {
       1: "10",
       2: "11",
       3: "01",
@@ -100,7 +133,8 @@ export const LEVEL_ANSWERS = {
     },
     rightMapping: 2,
   },
-  5: {
+],
+  5: [{
     correct: "011",
     answers: {
       1: "111",
@@ -116,52 +150,56 @@ export const LEVEL_ANSWERS = {
     },
     rightMapping: 1,
   },
-  'SideR3':{
+],
+  SideR3: [{
     correct: "AND",
     answers: {
-      OP1: "OR",
-      OP2: "AND",
-      OP3: "NOT",
-      OP4: "NINGUNA",
+      1: "OR",
+      2: "AND",
+      3: "NOT",
+      0: "NINGUNA",
     },
     wrongMappings: {
-      OP1: 1,
-      OP2: 2,
-      OP3: 3,
-      OP0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
     },
     rightMapping: 1,
   },
-  'SideR4':{
-    correct: "AND",
+],
+  SideR4: [{
+    correct: "AND & NOT",
     answers: {
-      OP1: "OR",
-      OP2: "AND",
-      OP3: "NOT",
-      OP4: "NINGUNA",
+      1: "OR & NOT",
+      2: "AND & OR",
+      3: "AND & NOT",
+      0: "AND & OR & NOT",
     },
     wrongMappings: {
-      OP1: 1,
-      OP2: 2,
-      OP3: 3,
-      OP0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
     },
-    rightMapping: 1,
+    rightMapping: 3,
   },
-  'SideR5':{
-    correct: "AND",
+],
+  SideR5: [{
+    correct: "OR o XOR",
     answers: {
-      OP1: "OR",
-      OP2: "AND",
-      OP3: "NOT",
-      OP4: "NINGUNA",
+      1: "NINGUNA",
+      2: "OR o NAND",
+      3: "XNOR o NAND",
+      0: "OR o XOR",
     },
     wrongMappings: {
-      OP1: 1,
-      OP2: 2,
-      OP3: 3,
-      OP0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      0: 0,
     },
-    rightMapping: 1,
+    rightMapping: 0,
   },
+],
 };
