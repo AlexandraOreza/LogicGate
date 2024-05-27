@@ -47,24 +47,24 @@ export class SideRoomScene extends Phaser.Scene {
         break;
       case 4:
         this.add
-          .image(this.scale.width / 2, 200, POSTER_ASSET_KEYS.POSTER_NOR)
+          .image(700, 200, POSTER_ASSET_KEYS.POSTER_NOR)
           .setScale(0.5);
 
         this.add
-          .image(this.scale.width / 2, 350, POSTER_ASSET_KEYS.POSTER_XOR)
+          .image(700, 350, POSTER_ASSET_KEYS.POSTER_XOR)
           .setScale(0.5);
 
         this.#door = this.add
-          .image(100, 390, DOOR_ASSET_KEYS.GATEI_CLOSED)
-          .setScale(0.3);
+          .image(950, 400, DOOR_ASSET_KEYS.MDOOR_CLOSED)
+          .setScale(0.3).setFlipX(true);
 
           this.add
-          .image(this.scale.width / 4, 200, POSTER_ASSET_KEYS.POSTER_OR)
-          .setScale(0.5);
+          .image(350, 200, POSTER_ASSET_KEYS.POSTER_OR)
+          .setScale(0.4);
 
         this.add
-          .image(this.scale.width / 4, 350, POSTER_ASSET_KEYS.POSTER_AND)
-          .setScale(0.5);
+          .image(350, 350, POSTER_ASSET_KEYS.POSTER_AND)
+          .setScale(0.4);
         break;
       case 5:
         this.add
@@ -76,7 +76,7 @@ export class SideRoomScene extends Phaser.Scene {
           .setScale(0.4);
 
         this.#door = this.add
-          .image(100, 390, DOOR_ASSET_KEYS.GATEI_CLOSED)
+          .image(950, 400, DOOR_ASSET_KEYS.MDOOR_CLOSED)
           .setScale(0.4);
 
         this.add

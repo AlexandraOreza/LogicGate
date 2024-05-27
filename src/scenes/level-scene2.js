@@ -91,7 +91,7 @@ export class LevelScene2 extends Phaser.Scene {
         inst = this.add.text(
           this.scale.width / 4,
           50,
-          "¿Qué valor resulta para ??? ?",
+          "¿Qué valor resulta para el circuito?",
           {
             color: "#000",
             fontSize: "25px",

@@ -46,7 +46,7 @@ export class SideChallengeMenu {
     this.#cont = 0;
     this.#currentLevel = this.#scene.data.values.level;
 
-    this.#lvlData = LEVEL_ANSWERS["SideR" + this.#currentLevel];
+    this.#lvlData = LEVEL_ANSWERS["SideR" + this.#currentLevel][0];
 
     this.#selectedOpt = 2;
     this.#selectedWrongOpt = new Set();
