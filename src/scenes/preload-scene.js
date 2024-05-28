@@ -10,7 +10,6 @@ export class PreloadScene extends Phaser.Scene {
   }
 
   preload() {
-    console.log(`[${PreloadScene.name}: preload] invoked`);
     this.load.setPath('assets/');
 
     //background
@@ -77,7 +76,6 @@ export class PreloadScene extends Phaser.Scene {
   }
 
   create() {
-    console.log(`[${PreloadScene.name}: create] invoked`);
     this.scene.start(SCENE_KEYS.MENU_SCENE);
   }
 }

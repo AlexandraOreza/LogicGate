@@ -9,7 +9,6 @@ export class GameOverScene extends Phaser.Scene{
         })
     }
     create(){
-        console.log(`[${GameOverScene.name}: create] invoked`);
         this.add.text(250, 150, "Vaya, parece que no has comprendido el tema lo suficiente :(");
 
         const button = this.add.text(370, 300, 'Volver al menu', {
@@ -33,9 +32,9 @@ export class GameOverScene extends Phaser.Scene{
           });
           button.on('pointerup', () => {
               this.sound.stopAll();
-              this.scene.start(SCENE_KEYS.MENU_SCENE);
               let progress = new ProgressScene();
               progress.resetProgress();
+              this.scene.start(SCENE_KEYS.MENU_SCENE);
               button.disableInteractive();
           }, this);
     }

@@ -25,7 +25,6 @@ export class ProgressScene extends Phaser.Scene {
     this.#currentLevel = data.levelData.level;
   }
   create() {
-    console.log(`[${ProgressScene.name}: create] invoked`);
 
     this.add.text(
       this.scale.width / 3 + 50,

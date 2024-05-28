@@ -10,7 +10,6 @@ export class MenuScene extends Phaser.Scene {
   }
 
   create() {
-    console.log(`[${MenuScene.name}: create] invoked`);
 
     //env render
     this.add

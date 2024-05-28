@@ -12,7 +12,6 @@ export class IntroScene extends Phaser.Scene {
   }
 
   create() {
-    console.log(`[${IntroScene.name}: create] invoked`);
 
     const loadedText = this.cache.text.get("Intro");
     this.#text = loadedText.split("\n");

@@ -44,7 +44,6 @@ export class LevelScene3 extends Phaser.Scene {
   }
 
   create() {
-    console.log(`[${LevelScene3.name}: create] invoked`);
 
     //env render
     this.add.image(0, 0, BACKGROUND_ASSET_KEYS.LVL3_WALL).setOrigin(0);

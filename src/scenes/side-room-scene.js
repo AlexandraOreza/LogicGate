@@ -21,11 +21,9 @@ export class SideRoomScene extends Phaser.Scene {
 
   init(data) {
     this.#level = data.level;
-    console.log("data: ", data);
   }
 
   create() {
-    console.log(`[${SideRoomScene.name}: create] invoked`);
     console.log("lvl: ", this.#level);
 
     this.add

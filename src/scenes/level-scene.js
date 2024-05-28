@@ -42,9 +42,6 @@ export class LevelScene extends Phaser.Scene {
   }
 
   create() {
-    
-    console.log(`[${LevelScene.name}: create] invoked`);
-
     //env render
     this.add.image(0, 0, BACKGROUND_ASSET_KEYS.WHITE_ROOM).setOrigin(0).setScale(.52,.39);
     this.add.text(0, 0, "Level: "+this.data.values.level,{
