@@ -77,7 +77,7 @@ export class SideRoomScene extends Phaser.Scene {
 
         this.#door = this.add
           .image(950, 400, DOOR_ASSET_KEYS.MDOOR_CLOSED)
-          .setScale(0.4);
+          .setScale(0.3).setFlipX(true);
 
         this.add
           .image(this.scale.width / 3, 200, POSTER_ASSET_KEYS.POSTER_AND)

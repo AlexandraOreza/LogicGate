@@ -279,8 +279,8 @@ export class LevelScene5 extends Phaser.Scene {
       this.#challenge.setVisible(false);
 
       this.#door = this.add
-        .image(this.scale.width / 2, 360, DOOR_ASSET_KEYS.CDOOR_OPEN)
-        .setScale(0.3);
+        .image(this.scale.width / 2, 330, DOOR_ASSET_KEYS.CDOOR_OPEN)
+        .setScale(0.5);
 
       this.#door.on("pointerup", () => {
         this.data.values.progress = true;
