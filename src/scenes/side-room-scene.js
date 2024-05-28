@@ -21,10 +21,12 @@ export class SideRoomScene extends Phaser.Scene {
 
   init(data) {
     this.#level = data.level;
+    console.log("data: ", data);
   }
 
   create() {
     console.log(`[${SideRoomScene.name}: create] invoked`);
+    console.log(this.#level);
 
     this.add
       .image(0, 0, BACKGROUND_ASSET_KEYS.WHITE_ROOM)
