@@ -87,7 +87,7 @@ export class SideChallengeMenu {
       this.#scene.sound.play("rightAns", {
         volume: 0.5,
       });
-      this.#scene.scene.launch(SCENE_KEYS.SIDE_ROOM, this.#currentLevel);
+      this.#scene.scene.launch(SCENE_KEYS.SIDE_ROOM, {level: this.#currentLevel});
       this.hideMenu();
       return "2";
     } else if (!this.#selectedWrongOpt.has(answ)) {
